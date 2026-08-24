@@ -1,0 +1,54 @@
+:root{
+  --navy:#1c3e8d;
+  --blue:#0369b2;
+  --sky:#59c1ee;
+  --ink:#12213f;
+  --mist:#eef8fd;
+  --line:#cfe6f2;
+}
+body{background:#f8fcff;color:var(--ink)}
+.page-notice{background:var(--navy)}
+.page-header{border-bottom-color:rgba(28,62,141,.12);box-shadow:0 12px 35px rgba(28,62,141,.06)}
+.page-brand img,.footer-brand img{width:200px;max-height:48px}
+.page-nav a:after{background:var(--sky)}
+.page-cta{background:linear-gradient(135deg,var(--blue),var(--navy));box-shadow:0 10px 24px rgba(3,105,178,.18)}
+.page-cta:hover{background:linear-gradient(135deg,var(--navy),#102963)}
+.page-hero{background:radial-gradient(circle at 78% 18%,rgba(89,193,238,.28),transparent 28%),linear-gradient(145deg,#f4fbff,#e5f5fc)}
+.page-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,62,141,.035) 1px,transparent 1px),linear-gradient(rgba(28,62,141,.035) 1px,transparent 1px);background-size:34px 34px;pointer-events:none}
+.page-hero-inner{position:relative}
+.page-kicker,.card-label{color:var(--blue)}
+.page-hero h1{color:var(--navy);max-width:850px}
+.page-hero-card{border-top:5px solid var(--sky);box-shadow:0 24px 65px rgba(28,62,141,.13)}
+.page-hero-card>b,.card-art b{color:var(--blue)}
+.article-content,.aside-card,.content-card,.order-process{border-color:var(--line);box-shadow:0 15px 45px rgba(28,62,141,.07)}
+.article-content h2,.article-content h3,.index-intro h2,.aside-card h2,.order-process h2{color:var(--navy)}
+.article-content a:not(.inline-cta),.toc a{color:var(--blue)}
+.article-content table{border-color:var(--line)}
+.article-content th,.article-content td{border-color:var(--line)}
+.article-content tr:nth-child(odd){background:var(--mist)}
+.inline-cta{background:var(--blue)}
+.card-art{background:linear-gradient(145deg,var(--navy),var(--blue))}
+.shop-card-footer a{background:var(--navy)}
+.page-footer{background:#0f285f}
+.commerce-head{background:linear-gradient(135deg,var(--navy),var(--blue))}
+.tier-option.active{border-color:var(--blue);background:var(--mist);color:var(--navy)}
+.selected-price{background:var(--mist);border-color:var(--line)}
+.rx-callout{background:#edf8fe;border-color:var(--sky)}
+@media(max-width:720px){.page-brand img{width:158px}.page-hero{background:linear-gradient(160deg,#f5fbff,#e8f6fc)}}
+
+/* Belfast homepage */
+.home-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 78% 20%,rgba(89,193,238,.3),transparent 28%),linear-gradient(145deg,#f5fbff,#e4f4fb);border-bottom:1px solid var(--line)}
+.home-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,62,141,.035) 1px,transparent 1px),linear-gradient(rgba(28,62,141,.035) 1px,transparent 1px);background-size:34px 34px}
+.home-hero-grid{position:relative;min-height:620px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:80px;align-items:center;padding:78px 0}
+.home-hero h1{max-width:800px;margin:0 0 28px;color:var(--navy);font:800 clamp(44px,6vw,72px)/1.03 var(--head);letter-spacing:-.055em}
+.home-slides{min-height:125px;position:relative}.home-slide{display:none}.home-slide.active{display:block;animation:homeFade .45s ease}.home-slide h2{max-width:720px;margin:0 0 10px;color:var(--blue);font:750 clamp(25px,3vw,37px)/1.15 var(--head)}.home-slide p{max-width:700px;margin:0;color:#4d6286;font-size:16px;line-height:1.7}
+.home-dots{display:flex;gap:8px;margin:22px 0}.home-dots button{width:8px;height:8px;padding:0;border:0;border-radius:8px;background:#a9c9db;cursor:pointer;transition:.2s}.home-dots button.active{width:30px;background:var(--blue)}
+.home-actions{display:flex;gap:10px;flex-wrap:wrap}.page-cta.secondary{background:#fff;color:var(--navy)!important;border-color:#bfd9e8;box-shadow:none}
+.home-care-card{padding:35px;border-radius:26px;background:linear-gradient(155deg,var(--navy),#10285f);color:#fff;box-shadow:0 28px 70px rgba(28,62,141,.24);transform:rotate(1.5deg)}.home-care-card>span{font-size:10px;letter-spacing:.14em;color:#bdeaff}.home-care-card>b{display:grid;place-items:center;width:62px;height:62px;margin:38px 0 28px;border-radius:20px;background:var(--sky);color:var(--navy);font:800 34px var(--head)}.home-care-card h2{margin:0 0 12px;font:750 30px/1.2 var(--head)}.home-care-card p{color:#d6ebf7;line-height:1.7}.home-care-card a{color:#fff;font-weight:800}
+.home-search{padding:22px 0;background:#fff;border-bottom:1px solid var(--line)}.home-search .page-container{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center}.home-search label{font-weight:800;color:var(--navy)}.home-search input{width:100%;height:52px;border:1px solid #bdd9e7;border-radius:13px;padding:0 17px;background:#f8fcfe;font:14px var(--body);outline:none}.home-search input:focus{border-color:var(--sky);box-shadow:0 0 0 4px rgba(89,193,238,.13)}.home-search span{font-size:12px;color:#60749a}
+.home-section{padding:82px 0}.home-section:nth-of-type(even){background:#fff}.home-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:34px}.home-heading h2{margin:0;color:var(--navy);font:800 clamp(30px,4vw,44px)/1.1 var(--head);letter-spacing:-.04em}.home-heading>p{max-width:450px;color:#60749a}.home-heading>a{color:var(--blue);font-weight:800}
+.home-categories{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.home-categories button{display:flex;gap:17px;align-items:center;min-height:94px;padding:20px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);text-align:left;cursor:pointer;transition:.2s}.home-categories button:hover{transform:translateY(-3px);border-color:var(--sky);box-shadow:0 14px 35px rgba(28,62,141,.08)}.home-categories b{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:var(--mist);color:var(--blue)}.home-categories span{font-weight:750}
+.home-medicines{background:#f2f9fd!important}.home-empty{text-align:center;padding:30px;color:#60749a}.home-story{background:#fff}.home-story .article-content{padding:38px;border:1px solid var(--line);border-radius:22px;background:#fff}.medicine-cards [hidden]{display:none!important}.product-card-art{background:linear-gradient(145deg,#f2f9fd,#dff2fa)!important}.product-card-art:after{display:none}.product-card-art img{width:100%;height:100%;object-fit:contain;padding:12px}
+@keyframes homeFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.home-hero-grid{grid-template-columns:1fr;min-height:auto;gap:42px}.home-care-card{display:none}.home-categories{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.home-hero-grid{padding:55px 0}.home-hero h1{font-size:43px}.home-search .page-container{grid-template-columns:1fr}.home-search span{display:none}.home-heading{display:block}.home-categories{grid-template-columns:1fr}.home-section{padding:58px 0}.home-story .article-content{padding:23px}.home-actions{display:grid}}
