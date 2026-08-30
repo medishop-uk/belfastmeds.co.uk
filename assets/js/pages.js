@@ -4,15 +4,15 @@ const kind=pageScript.dataset.kind||'article';
 const whatsapp='https://wa.me/447438135064';
 const telegram='https://t.me/BenzoAddy';
 const blogPosts=[
- ['10 Signs of ADHD in Adults','can-you-buy-medicine-without-a-prescription-in-the-uk.html','Recognise common adult ADHD signs and learn when professional support may help.'],
- ['A Clear Guide to Anxiety and Sleep Medication','understanding-anxiety-and-sleep-treatments-a-guide-for-uk-patients-blm.html','A straightforward overview of commonly discussed anxiety and sleep treatments.'],
- ['A Safe Way to Buy Prescription Medicines Online','how-to-safely-order-prescription-medicines-online-in-the-uk-blm.html','What UK patients should check before requesting prescription medicine online.'],
- ['How Long Can You Take Sleeping Pills Safely?','natural-anxiety-remedies-what-actually-works.html','Understand short-term use, dependence concerns and when to ask for help.'],
- ['Buying Medicine Online in the UK','how-to-purchase-medicine-safely-belfast-meds.html','Important safety, prescription and legitimacy checks for online medicine services.'],
- ['Neuropathy and Nerve Pain','neuropathy-causes-symptoms-treatment-options-belfastmeds.html','Explore common causes, symptoms and treatment approaches for nerve pain.'],
- ['Online Pharmacy Rules: NHS, GPhC and UK Law','nhs-gphc-law-online-pharmacy-in-the-united-kingdom-belfastmeds.html','A practical introduction to the rules patients should understand.'],
- ['Panic Disorder: Symptoms, Causes and Treatment','modafinil-for-wakefulness-uses-dosage-is-it-safe.html','Learn how panic disorder may present and the routes to clinical support.'],
- ['Choosing a Safe and Reliable Pharmacy','can-you-buy-medicine-without-a-prescription-in-the-uk.html','Useful checks to make before trusting any online medicine provider.']
+ ["Can you buy medicine without a prescription in the UK? Here's what's actually legal",'can-you-buy-medicine-without-a-prescription-in-the-uk.html','Recognise common adult ADHD signs and learn when professional support may help.'],
+ ['Understanding anxiety and sleep treatments: a guide for UK patients','understanding-anxiety-and-sleep-treatments-a-guide-for-uk-patients-blm.html','A straightforward overview of commonly discussed anxiety and sleep treatments.'],
+ ['How to Safely Order Prescription Medicines Online in the UK','how-to-safely-order-prescription-medicines-online-in-the-uk-blm.html','What UK patients should check before requesting prescription medicine online.'],
+ ['Natural anxiety remedies: What actually works','natural-anxiety-remedies-what-actually-works.html','Understand short-term use, dependence concerns and when to ask for help.'],
+ ['How to purchases medicine safely in Northern Ireland, UK?','how-to-purchase-medicine-safely-belfast-meds.html','Important safety, prescription and legitimacy checks for online medicine services.'],
+ ['Neuropathy causes, symptoms & treatment options','neuropathy-causes-symptoms-treatment-options-belfastmeds.html','Explore common causes, symptoms and treatment approaches for nerve pain.'],
+ ['NHS & GPhC laws for online pharmacies in the United Kingdom | Belfastmeds','nhs-gphc-law-online-pharmacy-in-the-united-kingdom-belfastmeds.html','A practical introduction to the rules patients should understand.'],
+ ['Modafinil for wakefulness: uses, dosage & is it safe?','modafinil-for-wakefulness-uses-dosage-is-it-safe.html','Learn how panic disorder may present and the routes to clinical support.'],
+ ["Can you buy medicine without a prescription in the UK? Here's what's actually legal",'can-you-buy-medicine-without-a-prescription-in-the-uk.html','Useful checks to make before trusting any online medicine provider.']
 ];
 const products=[
  ['Alprax Alprazolam 2mg','alprax-alprazolam-2-mg','Anxiety & panic','20'],['Alprazolam Alprax 1mg','alprax-1-mg-alprazolam','Anxiety & panic','20'],['Bromazepam','bromazepam-version-5','Short-term anxiety','25'],['Diazepam Martin Dow 10mg','diazepam-martin-dow-10mg','Anxiety & sedative','20'],['Easium Diazepam','easium-diazepam-10mg','Anxiety & sedative','50'],['Lorazepam Ativan 2mg','lorazepam-ativan-2-mg','Short-term anxiety','20'],['Midolam Midazolam 7.5mg','midolam-midazolam-7-5-mg','Sedation','20'],['Modafinil','modafinil-version-5','Wakefulness','25'],['Noctin Nitrazepam 5mg','noctin-nitrazepam-5-mg','Sleep & insomnia','20'],['Pase Clonazepam 2mg','pase-clonazepam-2mg','Anxiety & seizures','20'],['Pregabalin Pregacare','pregabalin-pregacare-nt','Nerve pain','30'],['Rivotril Clonazepam 2mg','rivotril-clonazepam-2mg','Anxiety & seizures','20'],['Rlam Alprazolam 1mg','rlam-alprazolam-1-mg','Anxiety & panic','20'],['Sedil Diazepam 5mg','sedil-diazepam-5-mg','Anxiety & sedative','30'],['Zopiclone 7.5mg','zopiclone-7-5mg-version-5','Sleep & insomnia','20']
