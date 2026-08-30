@@ -15,7 +15,7 @@ var catalog={
 'sedil-diazepam-5-mg':['Sedil Diazepam 5mg','Sedil','Square Pharmaceuticals','Anxiety & sedative',30],
 'lorazepam-ativan-2-mg':['Lorazepam Ativan 2mg','Ativan','Verified manufacturer','Short-term anxiety',20],
 'midolam-midazolam-7-5-mg':['Midolam Midazolam 7.5mg','Midolam','Verified manufacturer','Sedation',20],
-'modafinil-version-5':['Modafinil','Modafinil','Verified manufacturer','Wakefulness',25],
+'modafinil-version-5':['Modafinil','Modafinil','','Wakefulness',25],
 'noctin-nitrazepam-5-mg':['Noctin Nitrazepam 5mg','Noctin','Verified manufacturer','Sleep & insomnia',20],
 'pregabalin-pregacare-nt':['Pregabalin Pregacare','Pregacare','Verified manufacturer','Nerve pain',30],
 'zopiclone-7-5mg-version-5':['Zopiclone 7.5mg','Zopiclone','Verified manufacturer','Sleep & insomnia',20],
