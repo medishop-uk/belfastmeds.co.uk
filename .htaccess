@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Retired category slugs: keep one permanent route to each canonical category page.
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/adhd-(?:%26|&)-wakefulness(?:\.html)?$
+RewriteRule ^shop/category/adhd-(?:%26|&)-wakefulness(?:\.html)?$ %1shop/category/adhd-and-wakefulness.html [R=301,L,NE]
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/nerve-pain-(?:%26|&)-anxiety-related-medicines(?:\.html)?$
+RewriteRule ^shop/category/nerve-pain-(?:%26|&)-anxiety-related-medicines(?:\.html)?$ %1shop/category/nerve-pain-and-anxiety-related-medicines.html [R=301,L,NE]
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/sleep-(?:%26|&)-insomnia-medication(?:\.html)?$
+RewriteRule ^shop/category/sleep-(?:%26|&)-insomnia-medication(?:\.html)?$ %1shop/category/sleep-and-insomnia-medication.html [R=301,L,NE]
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/moderate-severe-pain(?:\.html)?$
+RewriteRule ^shop/category/moderate-severe-pain(?:\.html)?$ %1shop/category/moderate-to-severe-pain.html [R=301,L,NE]
+
+# Earlier homepage category names.
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/anxiety-sedative-medicines(?:\.html)?$
+RewriteRule ^shop/category/anxiety-sedative-medicines(?:\.html)?$ %1shop/category/anxiety-and-panic-disorders.html [R=301,L,NE]
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/midazolam-range(?:\.html)?$
+RewriteRule ^shop/category/midazolam-range(?:\.html)?$ %1shop/category/short-term-sedation.html [R=301,L,NE]
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/pain-management-prescription-required(?:\.html)?$
+RewriteRule ^shop/category/pain-management-prescription-required(?:\.html)?$ %1shop/category/moderate-to-severe-pain.html [R=301,L,NE]
+RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/short-term-anxiety-management(?:\.html)?$
+RewriteRule ^shop/category/short-term-anxiety-management(?:\.html)?$ %1shop/category/anxiety-and-panic-disorders.html [R=301,L,NE]

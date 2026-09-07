@@ -10,3 +10,19 @@
 .medicine-image-link{width:47px;height:47px;border-radius:13px;background:var(--mint);display:grid;place-items:center;overflow:hidden}.medicine-image-link img{width:46px;height:46px;object-fit:contain}.medicine-card h3 a{color:inherit}.medicine-action{display:grid;place-items:center}
 .home-postage-select{display:block;margin:12px 0 8px;font-size:10px;font-weight:800}.home-postage-select select{display:block;width:100%;height:42px;margin-top:5px;padding:0 9px;border:1px solid var(--line);border-radius:8px;background:#fff}
  .belfast-benefits{grid-template-columns:repeat(5,1fr)}@media(max-width:1000px){.belfast-benefits{grid-template-columns:1fr 1fr}}@media(max-width:450px){.belfast-benefits{grid-template-columns:1fr}}
+/* BelfastMeds category navigation */
+.nav-categories{position:relative}
+.nav-categories>button{display:flex;align-items:center;gap:7px;border:0;background:transparent;padding:4px 0;color:var(--ink);font:600 14px var(--body)}
+.nav-categories>button span{font-size:16px;transition:transform .2s}
+.nav-categories.open>button span{transform:rotate(180deg)}
+.category-dropdown{position:absolute;top:calc(100% + 18px);left:0;width:310px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 55px rgba(28,62,141,.16);opacity:0;visibility:hidden;transform:translateY(-7px);transition:.18s;z-index:120}
+.nav-categories.open .category-dropdown,.nav-categories:focus-within .category-dropdown{opacity:1;visibility:visible;transform:none}
+.desktop-nav .category-dropdown a{display:block;padding:9px 11px;border-radius:8px;font-size:12px}
+.desktop-nav .category-dropdown a:hover{background:var(--mint)}
+.mobile-category-menu{border-bottom:1px solid var(--line)}
+.mobile-category-menu summary{padding:9px;cursor:pointer;font-weight:600;list-style:none}
+.mobile-category-menu summary::-webkit-details-marker{display:none}
+.mobile-category-menu summary:after{content:'+';float:right}
+.mobile-category-menu[open] summary:after{content:'-'}
+.mobile-category-menu div{padding:0 0 8px 12px}
+.mobile-category-menu div a{font-size:12px}
