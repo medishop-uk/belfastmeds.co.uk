@@ -37,6 +37,16 @@ function h1(html) {
   return match ? decode(match[1]) : '';
 }
 
+function headTitle(html) {
+  const match = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
+  return match ? decode(match[1]) : '';
+}
+
+function headDescription(html) {
+  const match = html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']*)/i);
+  return match ? decode(match[1]) : '';
+}
+
 function escapeAttr(value) {
   return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -52,6 +62,7 @@ function pageInfo(file) {
   else if (rel === 'blog/index.html') kind = 'blog-index';
   else if (rel === 'about-us/index.html') kind = 'about';
   else if (rel.startsWith('shop/medicine/')) kind = 'product';
+  else if (rel.startsWith('shop/category/')) kind = 'shop-category';
   else if (rel.startsWith('blog/post/')) kind = 'blog-post';
   else if (rel.startsWith('service-area/')) kind = 'service';
   else if (rel.startsWith('landing-page/')) kind = 'landing';
@@ -75,20 +86,24 @@ function cleanExisting(html) {
 
 for (const file of files(site, '.html')) {
   if (path.resolve(file) === path.resolve(path.join(site, 'index.html'))) continue;
-  let html = cleanExisting(fs.readFileSync(file, 'utf8'))
+  const source = fs.readFileSync(file, 'utf8');
+  const existingTitle = headTitle(source);
+  const existingDescription = headDescription(source);
+  let html = cleanExisting(source)
     .replace(/ScotiaMeds/gi, match => match === match.toUpperCase() ? 'BELFASTMEDS' : 'BelfastMeds')
     .replace(/Scotiameds/gi, 'BelfastMeds')
     .replace(/scotiameds\.co\.uk/gi, 'belfastmeds.co.uk');
   const info = pageInfo(file);
-  const title = field(html, 'Meta Title:') || field(html, 'Title:') || h1(html) || 'BelfastMeds';
-  const description = field(html, 'Meta Description:') || `Read ${title} from BelfastMeds, with private UK-wide support and delivery information.`;
+  const title = existingTitle || field(html, 'Meta Title:') || field(html, 'Title:') || h1(html) || 'BelfastMeds';
+  const description = existingDescription || field(html, 'Meta Description:') || `Read ${title} from BelfastMeds, with private UK-wide support and delivery information.`;
   const commercePage = info.kind === 'product' || info.kind === 'shop-index';
   const scripts = [
     commercePage ? `<script defer src="${info.root}/assets/js/config.js?v=20260827"></script>` : '',
-    `<script defer src="${info.root}/assets/js/pages.js?v=20260827" data-root="${info.root}" data-kind="${info.kind}"></script>`,
+    `<script defer src="${info.root}/assets/js/pages.js?v=20260906" data-root="${info.root}" data-kind="${info.kind}"></script>`,
+    info.kind === 'shop-category' ? `<script defer src="${info.root}/assets/js/category.js?v=20260906" data-root="${info.root}"></script>` : '',
     info.kind === 'product' ? `<script defer src="${info.root}/assets/js/product.js?v=20260827"></script>` : '',
     commercePage ? `<script defer src="${info.root}/assets/js/commerce.js?v=20260827"></script>` : '',
-    `<script defer src="${info.root}/assets/js/site.js?v=20260827"></script>`
+    `<script defer src="${info.root}/assets/js/site.js?v=20260907"></script>`
   ].join('');
   const schema = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: info.canonical, isPartOf: { '@type': 'WebSite', name: 'BelfastMeds', url: `${domain}/` } }).replace(/</g, '\\u003c');
   const head = `<!-- BELFASTMEDS:HEAD -->
@@ -101,7 +116,7 @@ for (const file of files(site, '.html')) {
 <link rel="canonical" href="${info.canonical}"><link rel="icon" href="${info.root}/assets/img/favicon.png">
 <meta property="og:type" content="website"><meta property="og:locale" content="en_GB"><meta property="og:site_name" content="BelfastMeds"><meta property="og:title" content="${escapeAttr(title)}"><meta property="og:description" content="${escapeAttr(description)}"><meta property="og:url" content="${info.canonical}"><meta property="og:image" content="${domain}/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeAttr(title)}"><meta name="twitter:description" content="${escapeAttr(description)}"><meta name="twitter:image" content="${domain}/assets/img/og.jpg">
-<link rel="stylesheet" href="${info.root}/assets/css/pages.css?v=20260827">${scripts}<script type="application/ld+json">${schema}</script>
+<link rel="stylesheet" href="${info.root}/assets/css/pages.css?v=20260906">${scripts}<script type="application/ld+json">${schema}</script>
 <!-- /BELFASTMEDS:HEAD -->`;
   const body = `<!-- BELFASTMEDS:BODY --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWN4QZ4V" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript><!-- /BELFASTMEDS:BODY -->`;
   html = html.replace(/<html(?:\s[^>]*)?>/i, '<html lang="en-GB">');
