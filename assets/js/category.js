@@ -1,5 +1,10 @@
 (function(){
 'use strict';
+const medicineImages={
+ 'alprax-alprazolam-2-mg':'alprax-xr2.jpg','bromazepam-version-5':'broze.jpg','co-codamol':'co-codamol.jpg',
+ 'diazepam-martin-dow-10mg':'valium.jpg','lorazepam-ativan-2-mg':'lorazepam.jpg','noctin-nitrazepam-5-mg':'noctin.jpg',
+ 'rivotril-clonazepam-2mg':'rivotril-2.jpg','sedil-diazepam-5-mg':'sedil.jpg','zopiclone-7-5mg-version-5':'zopiclone-tablets.jpg'
+};
 var script=document.currentScript;
 var root=script.getAttribute('data-root')||'../..';
 var categories=[
@@ -45,7 +50,7 @@ function categoryList(active){
 }
 function cards(active){
  var items=products.filter(function(item){return item[4].indexOf(active)!==-1});
- return '<div class="category-medicine-grid">'+items.map(function(item){var url=root+'/shop/medicine/'+item[1]+'.html';return '<article class="category-medicine-card"><a class="category-product-image" href="'+url+'" aria-label="View '+safe(item[0])+'"><img src="'+root+'/assets/img/medicine-product.svg?v=20260911" alt="'+safe(item[0])+' product"></a><div><span>'+safe(item[2])+'</span><h3><a href="'+url+'">'+safe(item[0])+'</a></h3><p>Review medicine information, available pack options and safety guidance.</p><footer><small>Prices from</small><strong>&pound;'+item[3]+'</strong><a href="'+url+'" aria-label="View '+safe(item[0])+'">&rarr;</a></footer></div></article>'}).join('')+'</div>'
+ return '<div class="category-medicine-grid">'+items.map(function(item){var url=root+'/shop/medicine/'+item[1]+'.html';return '<article class="category-medicine-card"><a class="category-product-image" href="'+url+'" aria-label="View '+safe(item[0])+'"><img src="'+(medicineImages[item[1]]?root+'/assets/img/medicine/'+medicineImages[item[1]]:root+'/assets/img/medicine-product.svg?v=20260911')+'" alt="'+safe(item[0])+' product"></a><div><span>'+safe(item[2])+'</span><h3><a href="'+url+'">'+safe(item[0])+'</a></h3><p>Review medicine information, available pack options and safety guidance.</p><footer><small>Prices from</small><strong>&pound;'+item[3]+'</strong><a href="'+url+'" aria-label="View '+safe(item[0])+'">&rarr;</a></footer></div></article>'}).join('')+'</div>'
 }
 function fallbackContent(name,hasWhy,hasFaq){
  var html='';

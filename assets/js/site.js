@@ -32,15 +32,15 @@ function categoryLinks(){return categories.map(function(item){return '<a href="'
 function desktopMenu(){
  var path=location.pathname;
  function active(section){return path.indexOf(section)!==-1?' class="active"':''}
- return '<div class="nav-categories"><button type="button" aria-expanded="false">All Categories <span aria-hidden="true">&#8964;</span></button><div class="category-dropdown">'+categoryLinks()+'</div></div>'+
+ return '<a href="'+base+'/">Home</a><div class="nav-categories"><button type="button" aria-expanded="false">All Categories <span aria-hidden="true">&#8964;</span></button><div class="category-dropdown">'+categoryLinks()+'</div></div>'+
  '<a'+active('/shop/')+' href="'+base+'/shop/">Shop</a>'+
  '<a'+active('/blog/')+' href="'+base+'/blog/">Blog</a>'+
  '<a'+active('/about-us/')+' href="'+base+'/about-us/">About Us</a>'+
- '<a href="'+base+'/#contact">Contact Us</a>'
+ '<a href="'+base+'/contact-us/">Contact Us</a>'
 }
 function mobileMenu(){
- return '<details class="mobile-category-menu"><summary>All Categories</summary><div>'+categoryLinks()+'</div></details>'+
- '<a href="'+base+'/shop/">Shop</a><a href="'+base+'/blog/">Blog</a><a href="'+base+'/about-us/">About Us</a><a href="'+base+'/#contact">Contact Us</a>'
+ return '<a href="'+base+'/">Home</a><details class="mobile-category-menu"><summary>All Categories</summary><div>'+categoryLinks()+'</div></details>'+
+ '<a href="'+base+'/shop/">Shop</a><a href="'+base+'/blog/">Blog</a><a href="'+base+'/about-us/">About Us</a><a href="'+base+'/contact-us/">Contact Us</a>'
 }
 document.querySelectorAll('.desktop-nav,.page-nav').forEach(function(nav){nav.innerHTML=desktopMenu()});
 document.querySelectorAll('.mobile-nav,.page-mobile-nav').forEach(function(nav){nav.innerHTML=mobileMenu()});

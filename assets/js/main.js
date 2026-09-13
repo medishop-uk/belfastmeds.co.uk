@@ -41,17 +41,23 @@ renderCategories();renderMedicines();renderCart();document.querySelector('#year'
 document.addEventListener('click',e=>{let el;if(el=e.target.closest('[data-category]'))return setCategory(el.dataset.category);if(el=e.target.closest('[data-product]'))return openProduct(el.dataset.product);if(el=e.target.closest('[data-pack]')){pack=Number(el.dataset.pack);return renderDetail()}if(e.target.closest('#add-to-cart'))return addToCart();if(e.target.closest('.drawer-close')||e.target.matches('.overlay'))return closeDrawers();if(e.target.closest('[data-cart-open]'))return openDrawer('cart-drawer');if(el=e.target.closest('[data-remove]')){cart.splice(Number(el.dataset.remove),1);return saveCart()}if(e.target.closest('[data-browse]')){closeDrawers();return document.querySelector('#medicines').scrollIntoView({behavior:'smooth'})}if(el=e.target.closest('[data-search-term]')){query=el.dataset.searchTerm;search.value=query;active='all';renderMedicines();return document.querySelector('#medicines').scrollIntoView({behavior:'smooth'})}if(e.target.closest('.search-jump')){search.scrollIntoView({behavior:'smooth',block:'center'});return setTimeout(()=>search.focus(),400)}if(e.target.closest('.menu-button'))return document.querySelector('.mobile-nav').classList.toggle('open')});
 document.addEventListener('change',e=>{if(e.target.id==='variant-select'){variant=Number(e.target.value);pack=0;renderDetail()}});search.addEventListener('input',e=>{query=e.target.value.trim();active='all';renderMedicines()});document.querySelector('#clear-search').addEventListener('click',()=>{query='';search.value='';active='all';renderMedicines()});document.querySelector('.filter-toggle').addEventListener('click',()=>filters.classList.toggle('open'));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawers();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search.focus()}});const observer=new IntersectionObserver(xs=>xs.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.08});document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
 
-let heroSlideIndex=0,heroSlideTimer;
+let heroSlideIndex=0,heroSlideTimer,heroPaused=false;
 function showHeroSlide(index){
  const slides=[...document.querySelectorAll('.hero-slide')],dots=[...document.querySelectorAll('[data-hero-slide]')];
  if(!slides.length)return;
  heroSlideIndex=(index+slides.length)%slides.length;
- slides.forEach((slide,i)=>slide.classList.toggle('active',i===heroSlideIndex));
- dots.forEach((dot,i)=>dot.classList.toggle('active',i===heroSlideIndex));
+ slides.forEach((slide,i)=>{slide.classList.toggle('active',i===heroSlideIndex);slide.setAttribute('aria-hidden',String(i!==heroSlideIndex))});
+ dots.forEach((dot,i)=>{dot.classList.toggle('active',i===heroSlideIndex);dot.setAttribute('aria-pressed',String(i===heroSlideIndex))});
 }
 function startHeroSlides(){
  clearInterval(heroSlideTimer);
- if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)heroSlideTimer=setInterval(()=>showHeroSlide(heroSlideIndex+1),6000);
+ if(!heroPaused&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)heroSlideTimer=setInterval(()=>showHeroSlide(heroSlideIndex+1),6000);
 }
 document.querySelectorAll('[data-hero-slide]').forEach(dot=>dot.addEventListener('click',()=>{showHeroSlide(Number(dot.dataset.heroSlide));startHeroSlides()}));
 showHeroSlide(0);startHeroSlides();
+
+document.querySelector('[data-hero-prev]')?.addEventListener('click',()=>{showHeroSlide(heroSlideIndex-1);startHeroSlides()});
+document.querySelector('[data-hero-next]')?.addEventListener('click',()=>{showHeroSlide(heroSlideIndex+1);startHeroSlides()});
+document.querySelector('[data-hero-pause]')?.addEventListener('click',event=>{heroPaused=!heroPaused;event.currentTarget.textContent=heroPaused?'Play slideshow':'Pause slideshow';startHeroSlides()});
+document.querySelector('.banner-hero')?.addEventListener('focusin',()=>clearInterval(heroSlideTimer));
+document.querySelector('.banner-hero')?.addEventListener('focusout',startHeroSlides);
