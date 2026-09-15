@@ -44,6 +44,24 @@ function mobileMenu(){
 }
 document.querySelectorAll('.desktop-nav,.page-nav').forEach(function(nav){nav.innerHTML=desktopMenu()});
 document.querySelectorAll('.mobile-nav,.page-mobile-nav').forEach(function(nav){nav.innerHTML=mobileMenu()});
+
+var whatsapp='https://wa.me/447438135064',telegram='https://t.me/BenzoAddy';
+document.querySelectorAll('.header-actions,.page-actions').forEach(function(actions){
+ var link=actions.querySelector('a[href*="wa.me"]');
+ if(link){link.textContent='WhatsApp';link.href=whatsapp;link.rel='noopener';link.classList.add('nav-whatsapp')}
+ var tg=document.createElement('a');tg.href=telegram;tg.target='_blank';tg.rel='noopener';tg.className='nav-telegram';tg.textContent='Telegram';
+ actions.insertBefore(tg,actions.querySelector('.menu-button,.page-menu'));
+});
+document.querySelectorAll('.mobile-nav,.page-mobile-nav').forEach(function(nav){
+ var basket=document.createElement('button');basket.type='button';basket.className='mobile-basket';basket.textContent='Basket';
+ basket.addEventListener('click',function(){nav.classList.remove('open');document.querySelector('.menu-button,.page-menu')?.setAttribute('aria-expanded','false');document.querySelector('.header-actions [data-cart-open],.page-actions [data-commerce-open]')?.click()});
+ nav.appendChild(basket);
+ nav.insertAdjacentHTML('beforeend','<a href="'+whatsapp+'" target="_blank" rel="noopener">WhatsApp</a><a href="'+telegram+'" target="_blank" rel="noopener">Telegram</a>');
+});
+var floating=document.createElement('div');floating.className='floating-contact';floating.setAttribute('aria-label','Contact BelfastMeds');
+floating.innerHTML='<a class="floating-whatsapp" href="'+whatsapp+'" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M27 15a11 11 0 0 1-16 10L5 27l2-6A11 11 0 1 1 27 15Z"/><path fill="currentColor" d="M12 9c-1-1-3 1-2 4 2 5 5 8 9 8 2 0 4-3 2-4l-3-1-1 2c-2-1-4-3-5-5l2-1-2-3Z"/></svg></a><a class="floating-telegram" href="'+telegram+'" target="_blank" rel="noopener" aria-label="Chat on Telegram" title="Telegram"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="m5 15 22-9-4 21-7-6-4 4 1-7 10-9-13 8Z"/></svg></a>';
+document.body.appendChild(floating);
+
 document.querySelectorAll('.nav-categories>button').forEach(function(button){
  button.addEventListener('click',function(){
   var menu=button.parentElement;

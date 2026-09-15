@@ -30,11 +30,7 @@ var catalog={
 'temazepam':['Temazepam','Temazepam','Verified manufacturer','Sleep & insomnia',28],
 'zolpidem':['Zolpidem','Zolpidem','Verified manufacturer','Sleep & insomnia',25]
 };
-var productImages={
-'alprax-alprazolam-2-mg':'alprax-xr2.jpg','bromazepam-version-5':'broze.jpg','co-codamol':'co-codamol.jpg',
-'diazepam-martin-dow-10mg':'valium.jpg','lorazepam-ativan-2-mg':'lorazepam.jpg','noctin-nitrazepam-5-mg':'noctin.jpg',
-'rivotril-clonazepam-2mg':'rivotril-2.jpg','sedil-diazepam-5-mg':'sedil.jpg','zopiclone-7-5mg-version-5':'zopiclone-tablets.jpg'
-};
+const productImages={};
 function text(value){return String(value||'').replace(/\s+/g,' ').trim()}
 function slug(){return location.pathname.split('/').filter(Boolean).pop().replace(/\.html$/,'')}
 function field(label,scope){var nodes=scope.querySelectorAll('li,p');for(var i=0;i<nodes.length;i++){var value=text(nodes[i].textContent);if(value.toLowerCase().indexOf(label.toLowerCase()+':')===0)return text(value.slice(value.indexOf(':')+1))}return ''}
