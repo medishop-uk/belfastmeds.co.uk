@@ -1,10 +1,6 @@
 (function(){
 'use strict';
-const medicineImages={
- 'alprax-alprazolam-2-mg':'alprax-xr2.jpg','bromazepam-version-5':'broze.jpg','co-codamol':'co-codamol.jpg',
- 'diazepam-martin-dow-10mg':'valium.jpg','lorazepam-ativan-2-mg':'lorazepam.jpg','noctin-nitrazepam-5-mg':'noctin.jpg',
- 'rivotril-clonazepam-2mg':'rivotril-2.jpg','sedil-diazepam-5-mg':'sedil.jpg','zopiclone-7-5mg-version-5':'zopiclone-tablets.jpg'
-};
+const medicineImages={};
 var script=document.currentScript;
 var root=script.getAttribute('data-root')||'../..';
 var categories=[

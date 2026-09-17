@@ -21,7 +21,7 @@ const medicines=[
 {id:'temazepam',n:'Temazepam',u:'Short-term treatment for severe sleep difficulties.',c:[6],s:['Sleep'],v:[['Standard',[[14,28],[28,42],[56,70],[100,100],[300,240],[500,350],[1000,600]]]]},
 {id:'zolpidem',n:'Zolpidem',u:'Short-term medicine for severe insomnia.',c:[6],s:['Sleep'],v:[['Standard',[[10,25],[30,45],[60,70],[100,100],[300,240],[500,350],[1000,600]]]]}];
 const medicinePages={clonazepam:'pase-clonazepam-2mg',alprazolam:'alprax-alprazolam-2-mg',midazolam:'midolam-midazolam-7-5-mg',diazepam:'diazepam-martin-dow-10mg',lorazepam:'lorazepam-ativan-2-mg',tapentadol:'tapentadol-100mg',tramadol:'tramadol-100mg',nitrazepam:'noctin-nitrazepam-5-mg',zopiclone:'zopiclone-7-5mg-version-5',pregabalin:'pregabalin-pregacare-nt',ritalin:'ritalin-alaradate-10mg',etizolam:'etizolam',modifinal:'modafinil-version-5',cocodamol:'co-codamol',bromazepam:'bromazepam-version-5',benzit:'benzit',clobazam:'clobazam',mirtazapine:'mirtazapine-miramind',temazepam:'temazepam',zolpidem:'zolpidem'};
-const medicineImages={alprazolam:'alprax-xr2.jpg',bromazepam:'broze.jpg',cocodamol:'co-codamol.jpg',diazepam:'valium.jpg',lorazepam:'lorazepam.jpg',nitrazepam:'noctin.jpg',zopiclone:'zopiclone-tablets.jpg'};
+const medicineImages={};
 function medicineImage(id){return medicineImages[id]?'assets/img/medicine/'+medicineImages[id]:'assets/img/medicine-product.svg?v=20260911'}
 function medicineUrl(id){return 'shop/medicine/'+medicinePages[id]+'.html'}let active='all',query='',product=null,variant=0,pack=0;let cart=JSON.parse(localStorage.getItem('belfastCart')||'[]');
 const grid=document.querySelector('#medicine-grid'),catGrid=document.querySelector('#category-grid'),filters=document.querySelector('#filter-row'),search=document.querySelector('#medicine-search');

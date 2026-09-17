@@ -19,3 +19,13 @@ RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/pain-management-prescription-re
 RewriteRule ^shop/category/pain-management-prescription-required(?:\.html)?$ %1shop/category/moderate-to-severe-pain.html [R=301,L,NE]
 RewriteCond %{REQUEST_URI} ^(/.*/)?shop/category/short-term-anxiety-management(?:\.html)?$
 RewriteRule ^shop/category/short-term-anxiety-management(?:\.html)?$ %1shop/category/anxiety-and-panic-disorders.html [R=301,L,NE]
+
+# Serve current pages and assets without browser/proxy caching.
+<IfModule mod_expires.c>
+ ExpiresActive Off
+</IfModule>
+<IfModule mod_headers.c>
+ Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+ Header always set Pragma "no-cache"
+ Header always set Expires "0"
+</IfModule>
